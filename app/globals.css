@@ -1,0 +1,142 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Brand */
+  --brand: #0f2742;
+  --brand-foreground: #ffffff;
+  --accent-brand: #f59e0b;
+  --accent-brand-foreground: #1f2937;
+  --sub: #eaf4ff;
+
+  --background: #f8fafc;
+  --foreground: #1f2937;
+  --card: #ffffff;
+  --card-foreground: #1f2937;
+  --popover: #ffffff;
+  --popover-foreground: #1f2937;
+  --primary: #0f2742;
+  --primary-foreground: #ffffff;
+  --secondary: #eaf4ff;
+  --secondary-foreground: #0f2742;
+  --muted: #f1f5f9;
+  --muted-foreground: #64748b;
+  --accent: #f59e0b;
+  --accent-foreground: #1f2937;
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.577 0.245 27.325);
+  --border: #e2e8f0;
+  --input: #e2e8f0;
+  --ring: #0f2742;
+  --radius: 1rem;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #1f2937;
+  --sidebar-primary: #0f2742;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #eaf4ff;
+  --sidebar-accent-foreground: #0f2742;
+  --sidebar-border: #e2e8f0;
+  --sidebar-ring: #0f2742;
+}
+
+@theme inline {
+  --font-sans: var(--font-noto-sans-jp), 'Geist', system-ui, sans-serif;
+  --font-mono: 'Geist Mono', 'Geist Mono Fallback';
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-brand: var(--brand);
+  --color-brand-foreground: var(--brand-foreground);
+  --color-sub: var(--sub);
+  --radius-sm: calc(var(--radius) - 8px);
+  --radius-md: calc(var(--radius) - 4px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 8px);
+  --radius-2xl: calc(var(--radius) + 16px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "palt";
+  }
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+}
+
+/* Hero gradient backdrop */
+.hero-gradient {
+  background:
+    radial-gradient(1200px 600px at 85% -10%, rgba(245, 158, 11, 0.10), transparent 60%),
+    radial-gradient(900px 500px at 0% 10%, rgba(15, 39, 66, 0.08), transparent 60%),
+    linear-gradient(180deg, #f8fafc 0%, #eaf4ff 100%);
+}
+
+/* Subtle fade-in on enter (CSS only) */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-up {
+  animation: fade-up 0.6s ease-out both;
+}
+
+/* Marquee keyframes */
+@keyframes marquee-x {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@keyframes marquee-x-reverse {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+.marquee-track {
+  animation: marquee-x 48s linear infinite;
+}
+.marquee-track-reverse {
+  animation: marquee-x-reverse 56s linear infinite;
+}
+.marquee-mask {
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+          mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track,
+  .marquee-track-reverse {
+    animation: none;
+  }
+  .fade-up {
+    animation: none;
+  }
+}
