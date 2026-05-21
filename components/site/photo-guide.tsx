@@ -1,33 +1,6 @@
 import Image from "next/image"
 import { ArrowRight, Sparkles } from "lucide-react"
-
-type Tip = {
-  title: string
-  desc: string
-  img: string
-  alt: string
-}
-
-const tips: Tip[] = [
-  {
-    title: "店舗の正面全体",
-    desc: "看板を設置する建物の正面を、なるべく真正面から1枚。",
-    img: "/images/photo-guide/storefront-wide.jpg",
-    alt: "店舗の正面全体を撮影した写真の例",
-  },
-  {
-    title: "設置面のアップ",
-    desc: "壁面・ファサードのアップ写真。素材や下地が分かるとベスト。",
-    img: "/images/photo-guide/storefront-closeup.jpg",
-    alt: "看板を設置する壁面のアップ写真の例",
-  },
-  {
-    title: "周辺の様子・通り",
-    desc: "通行人の視線・隣接店舗・歩道の幅が分かる引きの1枚。",
-    img: "/images/photo-guide/storefront-street.jpg",
-    alt: "店舗周辺の通りと歩行者目線の写真の例",
-  },
-]
+import { photoGuideTips, type PhotoGuideTip } from "@/data/photoGuideTips"
 
 export function PhotoGuide() {
   return (
@@ -69,7 +42,7 @@ export function PhotoGuide() {
 
           {/* Right: 3 photo cards */}
           <ol className="lg:col-span-7 grid gap-4 sm:grid-cols-1 md:gap-5">
-            {tips.map((tip, idx) => (
+            {photoGuideTips.map((tip: PhotoGuideTip, idx) => (
               <li
                 key={tip.title}
                 className="overflow-hidden rounded-3xl bg-card ring-1 ring-border transition-all hover:-translate-y-0.5 hover:shadow-lg"
