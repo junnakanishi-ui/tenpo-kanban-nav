@@ -46,7 +46,7 @@ function MarqueeRow({
 export function ShowcaseMarquee() {
   return (
     <section aria-label="店舗看板の提案例" className="bg-card">
-      <div className="mx-auto max-w-7xl px-4 py-10 md:px-6 md:py-14">
+      <div className="mx-auto max-w-content px-4 py-10 md:px-6 md:py-14">
         <div className="mx-auto max-w-2xl text-center">
           <p className="text-xs font-bold tracking-widest text-accent md:text-sm">
             SHOWCASE

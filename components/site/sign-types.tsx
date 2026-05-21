@@ -7,7 +7,7 @@ export function SignTypes() {
 
   return (
     <section id="sign-types" aria-labelledby="sign-types-heading">
-      <div className="mx-auto max-w-7xl px-4 py-14 md:px-6 md:py-24">
+      <div className="mx-auto max-w-content px-4 py-14 md:px-6 md:py-24">
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div className="max-w-2xl">
             <p className="text-sm font-bold tracking-widest text-accent">SIGN TYPES</p>

@@ -25,7 +25,7 @@ export function Hero() {
         aria-hidden="true"
         className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/15 to-transparent"
       />
-      <div className="mx-auto max-w-7xl px-4 pb-16 pt-10 md:px-6 md:pb-24 md:pt-16 lg:min-h-[760px]">
+      <div className="mx-auto max-w-content px-4 pb-16 pt-10 md:px-6 md:pb-24 md:pt-16 lg:min-h-[760px]">
         <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-12">
           {/* Left: Copy (55%) */}
           <div className="fade-up lg:col-span-7">
@@ -107,8 +107,8 @@ export function Hero() {
               <figure className="col-span-6 group relative overflow-hidden rounded-3xl bg-secondary ring-1 ring-border shadow-sm">
                 <div className="relative aspect-[16/10] w-full">
                   <Image
-                    src="/images/hero/main-storefront-sign.jpg"
-                    alt="日本の店舗外観に設置されたファサード看板とプレート看板の提案例"
+                    src="/images/hero/hero-storefront-main.jpg"
+                    alt="カフェの店舗外観に設置されたファサード看板の提案例"
                     fill
                     sizes="(min-width: 1024px) 480px, 100vw"
                     className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
@@ -125,8 +125,8 @@ export function Hero() {
               <figure className="col-span-3 group relative overflow-hidden rounded-2xl bg-secondary ring-1 ring-border">
                 <div className="relative aspect-[4/3] w-full">
                   <Image
-                    src="/images/hero/karup-letter-sign.jpg"
-                    alt="店舗壁面に設置されたカルプ文字の立体看板"
+                    src="/images/hero/hero-dimensional-letter.jpg"
+                    alt="サロンの壁面に設置された立体文字看板の提案例"
                     fill
                     sizes="(min-width: 1024px) 240px, 50vw"
                     className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
@@ -141,8 +141,8 @@ export function Hero() {
               <figure className="col-span-3 group relative overflow-hidden rounded-2xl bg-secondary ring-1 ring-border">
                 <div className="relative aspect-[4/3] w-full">
                   <Image
-                    src="/images/hero/storefront-banner.jpg"
-                    alt="飲食店の店頭に掲げられた店頭幕とウィンドウサイン"
+                    src="/images/hero/hero-promotion-sign.jpg"
+                    alt="飲食店の店頭に掲げられた店頭幕の提案例"
                     fill
                     sizes="(min-width: 1024px) 240px, 50vw"
                     className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"

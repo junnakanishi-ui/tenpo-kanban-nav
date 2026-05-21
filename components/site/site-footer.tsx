@@ -22,7 +22,7 @@ export function SiteFooter() {
 
   return (
     <footer className="border-t border-border bg-card">
-      <div className="mx-auto max-w-7xl px-4 py-12 md:px-6 md:py-16">
+      <div className="mx-auto max-w-content px-4 py-12 md:px-6 md:py-16">
         <div className="grid gap-10 md:grid-cols-12">
           <div className="md:col-span-4">
             <Link href="/" className="flex items-center gap-2" aria-label="店舗看板ナビ トップへ">

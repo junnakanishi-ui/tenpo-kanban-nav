@@ -12,7 +12,7 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-40 w-full border-b border-border/60 bg-background/85 backdrop-blur-md">
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 md:px-6">
+      <div className="mx-auto flex h-16 max-w-content items-center justify-between px-4 md:px-6">
         <Link href="/" className="flex items-center gap-2" aria-label="店舗看板ナビ トップへ">
           <span
             aria-hidden="true"

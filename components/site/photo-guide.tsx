@@ -32,7 +32,7 @@ const tips: Tip[] = [
 export function PhotoGuide() {
   return (
     <section id="photo-guide" aria-labelledby="photo-heading">
-      <div className="mx-auto max-w-7xl px-4 py-14 md:px-6 md:py-24">
+      <div className="mx-auto max-w-content px-4 py-14 md:px-6 md:py-24">
         <div className="grid gap-10 lg:grid-cols-12 lg:gap-14">
           {/* Left */}
           <div className="lg:col-span-5">

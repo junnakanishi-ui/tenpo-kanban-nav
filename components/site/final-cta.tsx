@@ -3,7 +3,7 @@ import { ArrowRight, Calculator, Camera } from "lucide-react"
 export function FinalCta() {
   return (
     <section id="final-cta" aria-labelledby="final-cta-heading">
-      <div className="mx-auto max-w-7xl px-4 py-14 md:px-6 md:py-20">
+      <div className="mx-auto max-w-content px-4 py-14 md:px-6 md:py-20">
         <div className="relative overflow-hidden rounded-[2rem] bg-primary px-6 py-12 text-primary-foreground md:px-12 md:py-16 lg:px-16 lg:py-20">
           <div
             aria-hidden="true"

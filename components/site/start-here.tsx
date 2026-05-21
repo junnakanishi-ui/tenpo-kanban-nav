@@ -33,7 +33,7 @@ const items = [
 export function StartHere() {
   return (
     <section id="start-here" aria-labelledby="start-here-heading" className="bg-secondary/60">
-      <div className="mx-auto max-w-7xl px-4 py-14 md:px-6 md:py-20">
+      <div className="mx-auto max-w-content px-4 py-14 md:px-6 md:py-20">
         <div className="mx-auto max-w-2xl text-center">
           <p className="text-sm font-bold tracking-wider text-accent">START HERE</p>
           <h2 id="start-here-heading" className="mt-3 text-balance text-2xl font-black text-primary md:text-4xl">

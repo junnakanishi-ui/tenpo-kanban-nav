@@ -5,7 +5,7 @@ import { industries, type Industry } from "@/data/industries"
 export function Industries() {
   return (
     <section id="industries" aria-labelledby="industries-heading" className="bg-secondary/60">
-      <div className="mx-auto max-w-7xl px-4 py-14 md:px-6 md:py-24">
+      <div className="mx-auto max-w-content px-4 py-14 md:px-6 md:py-24">
         <div className="max-w-2xl">
           <p className="text-sm font-bold tracking-widest text-accent">BY INDUSTRY</p>
           <h2 id="industries-heading" className="mt-3 text-balance text-2xl font-black text-primary md:text-4xl">

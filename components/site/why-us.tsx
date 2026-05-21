@@ -26,7 +26,7 @@ const reasons = [
 export function WhyUs() {
   return (
     <section aria-labelledby="why-heading">
-      <div className="mx-auto max-w-7xl px-4 py-14 md:px-6 md:py-20">
+      <div className="mx-auto max-w-content px-4 py-14 md:px-6 md:py-20">
         <div className="mx-auto max-w-2xl text-center">
           <p className="text-sm font-bold tracking-wider text-accent">WHY US</p>
           <h2 id="why-heading" className="mt-3 text-balance text-2xl font-black text-primary md:text-4xl">
