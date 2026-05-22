@@ -11,7 +11,7 @@ const badges = [
 const stats = [
   { label: "対応エリア", value: "全国47都道府県" },
   { label: "見積もり目安", value: "当日〜翌営業日" },
-  { label: "対応看板", value: "9種類以上" },
+  { label: "対応看板", value: "11種類以上" },
 ]
 
 export function Hero() {

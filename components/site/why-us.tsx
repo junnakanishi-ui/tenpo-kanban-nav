@@ -3,7 +3,7 @@ import { Sparkles, MapPin, Layers, MessageSquareHeart } from "lucide-react"
 const reasons = [
   {
     icon: Layers,
-    title: "9種類の看板を中立に比較",
+    title: "11種類の看板を中立に比較",
     desc: "特定の素材を売りたいわけではないから、業種・立地に合った看板を中立的に提案できます。",
   },
   {

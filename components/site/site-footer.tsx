@@ -4,7 +4,7 @@ export function SiteFooter() {
   const cols = [
     {
       title: "看板の種類",
-      links: ["プレート看板", "アクリル看板", "カルプ文字", "ステンレス切文字", "チャンネル文字"],
+      links: ["プレート看板", "アクリル看板", "カルプ文字", "ステンレス切文字", "チャンネル文字", "すべて見る"],
     },
     {
       title: "業種別",
@@ -37,7 +37,7 @@ export function SiteFooter() {
             <p className="mt-4 text-sm leading-relaxed text-foreground/70">
               店舗看板の種類・価格・設置方法が、はじめてでもわかる看板選びナビ。
               <br />
-              tenpo-kanban-navi.jp
+              tenpo-kanban-nav.com
             </p>
           </div>
 
@@ -61,7 +61,7 @@ export function SiteFooter() {
 
         <div className="mt-12 flex flex-col items-start justify-between gap-3 border-t border-border pt-6 md:flex-row md:items-center">
           <p className="text-xs text-muted-foreground">© 2026 店舗看板ナビ. All rights reserved.</p>
-          <p className="text-xs text-muted-foreground">tenpo-kanban-navi.jp</p>
+          <p className="text-xs text-muted-foreground">tenpo-kanban-nav.com</p>
         </div>
       </div>
     </footer>
