@@ -80,6 +80,7 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
   --container-content: 1230px;
+  --grid-template-columns-14: repeat(14, minmax(0, 1fr));
 }
 
 @layer base {
@@ -92,6 +93,7 @@
   }
   html {
     -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
   }
 }
 
