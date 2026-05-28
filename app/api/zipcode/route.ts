@@ -49,7 +49,7 @@ export async function GET(
   }
 
   try {
-    const url = `https://zipcloud.ibsnet.jp/api/search?zipcode=${normalized}`
+    const url = `https://zipcloud.ibsnet.co.jp/api/search?zipcode=${normalized}`
 
     console.log('[zipcode] fetching:', url)
 
