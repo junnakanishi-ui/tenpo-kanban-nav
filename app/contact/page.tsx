@@ -3,6 +3,11 @@ import { SiteHeader } from '@/components/site/site-header'
 import { SiteFooter } from '@/components/site/site-footer'
 import { ContactForm } from '@/components/contact/contact-form'
 import { ContactHero } from './_components/contact-hero'
+import {
+  decodeSimulatorParams,
+  inquiryTypeFromChoice,
+} from '@/lib/simulator-params'
+import type { ContactFormValues } from '@/types/contact'
 
 export const metadata: Metadata = {
   title: 'お問い合わせ | 店舗看板ナビ',
@@ -19,7 +24,21 @@ export const metadata: Metadata = {
   },
 }
 
-export default function ContactPage() {
+export default async function ContactPage({
+  searchParams,
+}: {
+  searchParams: Promise<Record<string, string | string[] | undefined>>
+}) {
+  const sp = await searchParams
+  const simulatorData = decodeSimulatorParams(sp)
+
+  const defaultValues: Partial<ContactFormValues> | undefined = simulatorData
+    ? {
+        simulatorData,
+        inquiryType: inquiryTypeFromChoice(simulatorData.choice),
+      }
+    : undefined
+
   return (
     <>
       <SiteHeader />
@@ -27,7 +46,7 @@ export default function ContactPage() {
         <ContactHero />
         <section className="bg-muted/30">
           <div className="mx-auto max-w-3xl px-4 py-10 md:px-6 md:py-16">
-            <ContactForm />
+            <ContactForm defaultValues={defaultValues} />
           </div>
         </section>
       </main>

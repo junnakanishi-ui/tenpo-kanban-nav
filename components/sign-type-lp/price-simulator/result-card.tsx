@@ -2,6 +2,7 @@
 
 import Link from "next/link"
 import { Package, Wrench, BadgeCheck, ArrowRight } from "lucide-react"
+import { encodeSimulatorParams } from "@/lib/simulator-params"
 import { cn } from "@/lib/utils"
 import type { SimulatorState, PriceChoice } from "./types"
 import type { SimulatorResult } from "@/lib/price-simulator/calc"
@@ -30,6 +31,23 @@ export function ResultCard({ state, result, onChoiceChange }: ResultCardProps) {
     state.choice === "install"
       ? "製作＋施工で見積もり依頼"
       : "製作のみで見積もり依頼"
+
+  const estimatedPrice =
+    state.choice === "install"
+      ? result.installTotalInTax
+      : result.onlyTotalInTax
+
+  const contactHref = `/contact?${encodeSimulatorParams({
+    signType: "プレート看板",
+    width: state.width,
+    height: state.height,
+    qty: state.qty,
+    design: state.design.value,
+    finish: finishLabel,
+    light: state.light.value,
+    choice: state.choice === "install" ? "製作＋施工" : "製作のみ",
+    estimatedPrice,
+  })}`
 
   return (
     <div className="rounded-xl bg-white p-[18px]">
@@ -76,7 +94,7 @@ export function ResultCard({ state, result, onChoiceChange }: ResultCardProps) {
       </div>
 
       <Link
-        href="/contact"
+        href={contactHref}
         className="mt-3.5 block w-full rounded-md bg-[#F59E0B] px-4 py-[18px] text-white transition-colors hover:bg-[#D97706]"
       >
         <div className="flex items-center justify-center gap-1.5 text-[17px] font-medium leading-tight">

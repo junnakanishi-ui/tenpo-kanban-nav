@@ -47,10 +47,15 @@ export function buildAdminEmailText(values: ContactFormValues): string {
     const sim = values.simulatorData
     if (sim.signType) lines.push(`看板タイプ: ${sim.signType}`)
     if (sim.width && sim.height) lines.push(`サイズ: ${sim.width}×${sim.height}mm`)
+    if (sim.qty) lines.push(`枚数: ${sim.qty}枚`)
+    if (sim.design) lines.push(`データ: ${sim.design}`)
+    if (sim.finish) lines.push(`仕上げ: ${sim.finish}`)
+    if (sim.light) lines.push(`照明: ${sim.light}`)
+    if (sim.choice) lines.push(`ご希望: ${sim.choice}`)
     if (sim.material) lines.push(`素材: ${sim.material}`)
     if (sim.installMethod) lines.push(`取付方法: ${sim.installMethod}`)
     if (sim.estimatedPrice) {
-      lines.push(`概算金額: ¥${sim.estimatedPrice.toLocaleString()}`)
+      lines.push(`概算金額: ¥${sim.estimatedPrice.toLocaleString()}（税込）`)
     }
     lines.push('')
   }
@@ -111,10 +116,15 @@ export function buildUserThankYouEmailText(values: ContactFormValues): string {
     const sim = values.simulatorData
     if (sim.signType) lines.push(`看板タイプ: ${sim.signType}`)
     if (sim.width && sim.height) lines.push(`サイズ: ${sim.width}×${sim.height}mm`)
+    if (sim.qty) lines.push(`枚数: ${sim.qty}枚`)
+    if (sim.design) lines.push(`データ: ${sim.design}`)
+    if (sim.finish) lines.push(`仕上げ: ${sim.finish}`)
+    if (sim.light) lines.push(`照明: ${sim.light}`)
+    if (sim.choice) lines.push(`ご希望: ${sim.choice}`)
     if (sim.material) lines.push(`素材: ${sim.material}`)
     if (sim.installMethod) lines.push(`取付方法: ${sim.installMethod}`)
     if (sim.estimatedPrice) {
-      lines.push(`概算金額: ¥${sim.estimatedPrice.toLocaleString()}`)
+      lines.push(`概算金額: ¥${sim.estimatedPrice.toLocaleString()}（税込）`)
     }
     lines.push('')
   }

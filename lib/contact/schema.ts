@@ -56,6 +56,11 @@ export const contactFormSchema = z.object({
       material: z.string().optional(),
       installMethod: z.string().optional(),
       estimatedPrice: z.number().optional(),
+      qty: z.number().optional(),
+      design: z.string().optional(),
+      finish: z.string().optional(),
+      light: z.string().optional(),
+      choice: z.string().optional(),
     })
     .optional(),
 })

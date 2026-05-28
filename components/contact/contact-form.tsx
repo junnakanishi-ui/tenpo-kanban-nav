@@ -122,6 +122,54 @@ export function ContactForm({ defaultValues }: Props) {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+      {/* シミュレーター結果カード */}
+      {defaultValues?.simulatorData && (
+        <div className="rounded-2xl bg-secondary p-5 ring-1 ring-primary/15 md:p-7">
+          <p className="text-sm font-bold tracking-widest text-accent">
+            SIMULATOR RESULT
+          </p>
+          <h3 className="mt-2 text-lg font-black text-primary">
+            シミュレーターでお選びいただいた内容
+          </h3>
+          <p className="mt-1 text-sm text-muted-foreground">
+            この内容でお見積もりのご依頼を承ります。修正がある場合は下記フォームの内容欄にご記入ください。
+          </p>
+          <dl className="mt-4 grid grid-cols-1 gap-x-6 gap-y-2 sm:grid-cols-2">
+            {defaultValues.simulatorData.signType && (
+              <SimRow label="看板タイプ" value={defaultValues.simulatorData.signType} />
+            )}
+            {defaultValues.simulatorData.width &&
+              defaultValues.simulatorData.height && (
+                <SimRow
+                  label="サイズ"
+                  value={`${defaultValues.simulatorData.width}×${defaultValues.simulatorData.height}mm`}
+                />
+              )}
+            {defaultValues.simulatorData.qty && (
+              <SimRow label="枚数" value={`${defaultValues.simulatorData.qty}枚`} />
+            )}
+            {defaultValues.simulatorData.design && (
+              <SimRow label="データ" value={defaultValues.simulatorData.design} />
+            )}
+            {defaultValues.simulatorData.finish && (
+              <SimRow label="仕上げ" value={defaultValues.simulatorData.finish} />
+            )}
+            {defaultValues.simulatorData.light && (
+              <SimRow label="照明" value={defaultValues.simulatorData.light} />
+            )}
+            {defaultValues.simulatorData.choice && (
+              <SimRow label="ご希望" value={defaultValues.simulatorData.choice} />
+            )}
+            {defaultValues.simulatorData.estimatedPrice && (
+              <SimRow
+                label="概算金額"
+                value={`¥${defaultValues.simulatorData.estimatedPrice.toLocaleString()}（税込）`}
+              />
+            )}
+          </dl>
+        </div>
+      )}
+
       {/* 基本情報 */}
       <div className="rounded-2xl bg-card p-5 ring-1 ring-border md:p-7">
         <h3 className="mb-5 text-lg font-black text-primary">お客様情報</h3>
@@ -229,5 +277,14 @@ export function ContactForm({ defaultValues }: Props) {
         </p>
       </div>
     </form>
+  )
+}
+
+function SimRow({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="flex justify-between gap-3 border-b border-primary/10 py-1.5 text-sm">
+      <dt className="shrink-0 text-muted-foreground">{label}</dt>
+      <dd className="text-right font-bold text-primary">{value}</dd>
+    </div>
   )
 }
