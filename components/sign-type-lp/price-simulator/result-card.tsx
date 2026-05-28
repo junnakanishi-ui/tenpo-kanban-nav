@@ -1,5 +1,6 @@
 "use client"
 
+import Link from "next/link"
 import { Package, Wrench, BadgeCheck, ArrowRight } from "lucide-react"
 import { cn } from "@/lib/utils"
 import type { SimulatorState, PriceChoice } from "./types"
@@ -74,14 +75,9 @@ export function ResultCard({ state, result, onChoiceChange }: ResultCardProps) {
         </div>
       </div>
 
-      <button
-        type="button"
-        className="mt-3.5 w-full rounded-md bg-[#F59E0B] px-4 py-[18px] text-white transition-colors hover:bg-[#D97706]"
-        onClick={() => {
-          alert(
-            "見積もり依頼ボタンが押されました。本番ではフォーム画面へ遷移します。"
-          )
-        }}
+      <Link
+        href="/contact"
+        className="mt-3.5 block w-full rounded-md bg-[#F59E0B] px-4 py-[18px] text-white transition-colors hover:bg-[#D97706]"
       >
         <div className="flex items-center justify-center gap-1.5 text-[17px] font-medium leading-tight">
           <span>この内容で見積もり依頼</span>
@@ -90,7 +86,7 @@ export function ResultCard({ state, result, onChoiceChange }: ResultCardProps) {
         <div className="mt-2 text-[13px] leading-tight opacity-95">
           {ctaSubLabel}
         </div>
-      </button>
+      </Link>
     </div>
   )
 }

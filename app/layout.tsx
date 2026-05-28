@@ -11,6 +11,7 @@ const notoSansJP = Noto_Sans_JP({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://tenpo-kanban-navi.com'),
   title: '店舗看板ナビ | 店舗看板の種類・価格・設置方法がはじめてでもわかる',
   description:
     'プレート看板、アクリル看板、カルプ文字、店頭幕、ウィンドウサインまで。看板選びに迷ったら、まずは診断と概算見積もりから。製作のみも全国施工込みも対応。',
