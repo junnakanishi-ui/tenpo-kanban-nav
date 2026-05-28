@@ -11,6 +11,7 @@ import { CommonMistakes } from "@/components/site/common-mistakes"
 import { WhyUs } from "@/components/site/why-us"
 import { Faq } from "@/components/site/faq"
 import { FinalCta } from "@/components/site/final-cta"
+import { ContactChannels } from "@/components/site/contact-channels"
 import { SiteFooter } from "@/components/site/site-footer"
 import { MobileStickyCta } from "@/components/site/mobile-sticky-cta"
 
@@ -31,6 +32,7 @@ export default function Page() {
         <WhyUs />
         <Faq />
         <FinalCta />
+        <ContactChannels />
       </main>
       <SiteFooter />
       <MobileStickyCta />

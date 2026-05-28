@@ -32,7 +32,7 @@ export const signTypes: SignType[] = [
     uses: ["飲食店", "クリニック", "オフィス"],
     img: "/images/sign-types/plate-sign.jpg",
     alt: "アルミ複合板のプレート看板の設置例",
-    href: "#",
+    href: "/sign-types/plate-sign",
     featured: true,
   },
   {

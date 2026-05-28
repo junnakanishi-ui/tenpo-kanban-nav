@@ -1,22 +1,49 @@
 import Link from "next/link"
+import { Phone, MessageCircle, Mail } from "lucide-react"
+import { SITE_CONTACT } from "@/data/site-contact"
 
 export function SiteFooter() {
   const cols = [
     {
       title: "看板の種類",
-      links: ["プレート看板", "アクリル看板", "カルプ文字", "ステンレス切文字", "チャンネル文字", "すべて見る"],
+      links: [
+        { label: "プレート看板", href: "/sign-types/plate-sign", ready: true },
+        { label: "アクリル看板", href: "#", ready: false },
+        { label: "カルプ文字", href: "#", ready: false },
+        { label: "ステンレス切文字", href: "#", ready: false },
+        { label: "チャンネル文字", href: "#", ready: false },
+        { label: "すべて見る", href: "#", ready: false },
+      ],
     },
     {
       title: "業種別",
-      links: ["飲食店", "美容室・サロン", "整体院・整骨院", "クリニック", "会社・オフィス"],
+      links: [
+        { label: "飲食店", href: "#", ready: false },
+        { label: "美容室・サロン", href: "#", ready: false },
+        { label: "整体院・整骨院", href: "#", ready: false },
+        { label: "クリニック", href: "#", ready: false },
+        { label: "会社・オフィス", href: "#", ready: false },
+      ],
     },
     {
       title: "サービス",
-      links: ["看板診断", "価格シミュレーター", "写真相談", "全国施工", "製作のみ依頼"],
+      links: [
+        { label: "看板診断", href: "#", ready: false },
+        { label: "価格シミュレーター", href: "/sign-types/plate-sign", ready: true },
+        { label: "写真相談", href: "#", ready: false },
+        { label: "全国施工", href: "#", ready: false },
+        { label: "製作のみ依頼", href: "#", ready: false },
+      ],
     },
     {
       title: "会社情報",
-      links: ["運営会社", "お問い合わせ", "プライバシーポリシー", "利用規約", "特定商取引法"],
+      links: [
+        { label: "運営会社", href: "#", ready: false },
+        { label: "お問い合わせ", href: "/contact", ready: true },
+        { label: "プライバシーポリシー", href: "#", ready: false },
+        { label: "利用規約", href: "#", ready: false },
+        { label: "特定商取引法", href: "#", ready: false },
+      ],
     },
   ]
 
@@ -39,6 +66,32 @@ export function SiteFooter() {
               <br />
               tenpo-kanban-nav.com
             </p>
+            <div className="mt-5 space-y-2.5">
+              <a
+                href={SITE_CONTACT.telHref}
+                className="flex items-center gap-2 text-sm font-bold text-primary hover:text-accent"
+              >
+                <Phone className="h-4 w-4 text-accent" aria-hidden="true" />
+                {SITE_CONTACT.telDisplay}
+              </a>
+              <a
+                href={SITE_CONTACT.lineUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-sm text-foreground/70 hover:text-primary"
+              >
+                <MessageCircle className="h-4 w-4 text-[#06C755]" aria-hidden="true" />
+                公式LINEで相談
+              </a>
+              <Link
+                href={SITE_CONTACT.contactPath}
+                className="flex items-center gap-2 text-sm text-foreground/70 hover:text-primary"
+              >
+                <Mail className="h-4 w-4 text-accent" aria-hidden="true" />
+                お問い合わせフォーム
+              </Link>
+            </div>
+            <p className="mt-4 text-xs text-muted-foreground">電話受付：{SITE_CONTACT.hours.tel}</p>
           </div>
 
           <div className="grid grid-cols-2 gap-8 md:col-span-8 md:grid-cols-4">
@@ -47,10 +100,19 @@ export function SiteFooter() {
                 <h3 className="text-sm font-bold text-primary">{col.title}</h3>
                 <ul className="mt-4 space-y-2.5">
                   {col.links.map((l) => (
-                    <li key={l}>
-                      <a href="#" className="text-sm text-foreground/70 hover:text-primary">
-                        {l}
-                      </a>
+                    <li key={l.label}>
+                      {l.ready ? (
+                        <Link href={l.href} className="text-sm text-foreground/70 transition-colors hover:text-primary">
+                          {l.label}
+                        </Link>
+                      ) : (
+                        <span className="inline-flex items-center gap-1.5 text-sm text-muted-foreground/50" aria-disabled="true">
+                          {l.label}
+                          <span className="rounded bg-muted px-1.5 py-0.5 text-[10px] font-bold text-muted-foreground/70">
+                            準備中
+                          </span>
+                        </span>
+                      )}
                     </li>
                   ))}
                 </ul>
