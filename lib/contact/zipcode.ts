@@ -1,6 +1,8 @@
 /**
  * 郵便番号から住所を取得するユーティリティ
- * zipcloud API (https://zipcloud.ibsnet.jp/) を使用
+ *
+ * クライアントから直接 zipcloud API を叩くと CORS/CSP でブロックされる場合があるため、
+ * 内部のサーバーサイドAPI(/api/zipcode)を経由する方式にしている。
  */
 
 export type ZipcodeResult = {
@@ -8,22 +10,9 @@ export type ZipcodeResult = {
   city: string
 } | null
 
-type ZipcloudResponse = {
-  status: number
-  message: string | null
-  results:
-    | {
-        zipcode: string
-        prefcode: string
-        address1: string // 都道府県
-        address2: string // 市区町村
-        address3: string // 町域
-        kana1: string
-        kana2: string
-        kana3: string
-      }[]
-    | null
-}
+type ZipcodeApiResponse =
+  | { ok: true; prefecture: string; city: string }
+  | { ok: false; error: string }
 
 /**
  * 郵便番号(ハイフン有無問わず)から住所を取得する
@@ -43,26 +32,22 @@ export async function fetchAddressByZipcode(
   }
 
   try {
-    const url = `https://zipcloud.ibsnet.jp/api/search?zipcode=${normalized}`
-    const res = await fetch(url, {
-      // クライアントサイドキャッシュを活用
-      cache: 'force-cache',
-    })
+    const url = `/api/zipcode?code=${normalized}`
+    const res = await fetch(url)
 
-    if (!res.ok) return null
+    const data = (await res.json()) as ZipcodeApiResponse
 
-    const data = (await res.json()) as ZipcloudResponse
-
-    if (data.status !== 200 || !data.results || data.results.length === 0) {
+    if (!data.ok) {
+      console.warn('[zipcode] API returned error:', data.error)
       return null
     }
 
-    const first = data.results[0]
     return {
-      prefecture: first.address1,
-      city: `${first.address2}${first.address3}`,
+      prefecture: data.prefecture,
+      city: data.city,
     }
-  } catch {
+  } catch (err) {
+    console.error('[zipcode] fetch error:', err)
     return null
   }
 }
