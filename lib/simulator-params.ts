@@ -59,6 +59,53 @@ export function decodeSimulatorParams(
   }
 }
 
+export function encodeAcrylicParams(data: SimulatorData): string {
+  const params = new URLSearchParams()
+  if (data.signType) params.set("st", data.signType)
+  if (data.material) params.set("type", data.material)
+  if (typeof data.width === "number") params.set("w", String(data.width))
+  if (typeof data.height === "number") params.set("h", String(data.height))
+  if (data.thickness) params.set("thk", data.thickness)
+  if (data.bevel) params.set("bev", data.bevel)
+  if (data.mount) params.set("mnt", data.mount)
+  if (data.design) params.set("design", data.design)
+  if (data.choice) params.set("choice", data.choice)
+  if (typeof data.estimatedPrice === "number") params.set("price", String(data.estimatedPrice))
+  return params.toString()
+}
+
+export function decodeAcrylicParams(
+  searchParams: Record<string, string | string[] | undefined>
+): SimulatorData | undefined {
+  const get = (key: string): string | undefined => {
+    const v = searchParams[key]
+    return Array.isArray(v) ? v[0] : v
+  }
+
+  const st = get("st")
+  const type = get("type")
+  if (!st || !type) return undefined
+
+  const toNum = (s: string | undefined): number | undefined => {
+    if (s === undefined) return undefined
+    const n = Number(s)
+    return Number.isFinite(n) ? n : undefined
+  }
+
+  return {
+    signType: st,
+    material: type,
+    width: toNum(get("w")),
+    height: toNum(get("h")),
+    thickness: get("thk"),
+    bevel: get("bev"),
+    mount: get("mnt"),
+    design: get("design"),
+    choice: get("choice"),
+    estimatedPrice: toNum(get("price")),
+  }
+}
+
 /**
  * シミュレーターの choice 文字列から問い合わせ種別を判定
  * "製作＋施工" → production_with_installation / それ以外 → production_only

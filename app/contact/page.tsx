@@ -4,6 +4,7 @@ import { SiteFooter } from '@/components/site/site-footer'
 import { ContactForm } from '@/components/contact/contact-form'
 import { ContactHero } from './_components/contact-hero'
 import {
+  decodeAcrylicParams,
   decodeSimulatorParams,
   inquiryTypeFromChoice,
 } from '@/lib/simulator-params'
@@ -30,7 +31,10 @@ export default async function ContactPage({
   searchParams: Promise<Record<string, string | string[] | undefined>>
 }) {
   const sp = await searchParams
-  const simulatorData = decodeSimulatorParams(sp)
+  const stRaw = sp['st']
+  const stVal = Array.isArray(stRaw) ? stRaw[0] : stRaw
+  const simulatorData =
+    stVal === 'アクリル看板' ? decodeAcrylicParams(sp) : decodeSimulatorParams(sp)
 
   const defaultValues: Partial<ContactFormValues> | undefined = simulatorData
     ? {

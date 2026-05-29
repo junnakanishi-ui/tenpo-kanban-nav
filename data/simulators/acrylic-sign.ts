@@ -154,12 +154,6 @@ export const MOUNT_OPTIONS = [
   "相談したい",
 ] as const
 
-export const DESIGN_OPTIONS = [
-  "入稿データあり",
-  "デザイン作成を依頼",
-  "ロゴ・手書きラフから相談",
-] as const
-
 export const ACRYLIC_SIM_NOTES: string[] = [
   "表示価格はアクリル看板本体の概算価格です。",
   "送料・穴あけ加工・飾りキャップ・ポピック・取付金具・施工費は別途お見積もりとなります。",

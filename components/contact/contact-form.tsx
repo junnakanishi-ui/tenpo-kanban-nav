@@ -151,6 +151,18 @@ export function ContactForm({ defaultValues }: Props) {
             {defaultValues.simulatorData.design && (
               <SimRow label="データ" value={defaultValues.simulatorData.design} />
             )}
+            {defaultValues.simulatorData.material && (
+              <SimRow label="タイプ" value={defaultValues.simulatorData.material} />
+            )}
+            {defaultValues.simulatorData.thickness && (
+              <SimRow label="厚み" value={defaultValues.simulatorData.thickness} />
+            )}
+            {defaultValues.simulatorData.bevel && (
+              <SimRow label="面取り" value={defaultValues.simulatorData.bevel} />
+            )}
+            {defaultValues.simulatorData.mount && (
+              <SimRow label="取付金具" value={defaultValues.simulatorData.mount} />
+            )}
             {defaultValues.simulatorData.finish && (
               <SimRow label="仕上げ" value={defaultValues.simulatorData.finish} />
             )}
