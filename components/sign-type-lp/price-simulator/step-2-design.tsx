@@ -2,31 +2,13 @@
 
 import { StepCard } from "./step-card"
 import { cn } from "@/lib/utils"
+import { DESIGN_OPTIONS } from "@/data/pricing-rules"
 import type { DesignChoice } from "./types"
 
 type Step2Props = {
   value: DesignChoice
   onChange: (v: DesignChoice) => void
 }
-
-const OPTIONS: Array<{
-  choice: DesignChoice
-  title: string
-  desc: string
-  badge?: string
-}> = [
-  {
-    choice: { value: "データあり", cost: 0 },
-    title: "入稿データがある",
-    desc: "AI / PDF / JPGなど",
-  },
-  {
-    choice: { value: "デザイン依頼", cost: 10000 },
-    title: "デザイン作成を依頼",
-    desc: "手書きメモ等から作成",
-    badge: "+¥10,000〜",
-  },
-]
 
 export function Step2Design({ value, onChange }: Step2Props) {
   return (
@@ -38,13 +20,13 @@ export function Step2Design({ value, onChange }: Step2Props) {
       hintLabel="入稿との違い"
     >
       <div className="grid grid-cols-2 gap-2.5">
-        {OPTIONS.map((opt) => {
-          const isActive = value.value === opt.choice.value
+        {DESIGN_OPTIONS.map((opt) => {
+          const isActive = value.value === opt.value
           return (
             <button
-              key={opt.choice.value}
+              key={opt.value}
               type="button"
-              onClick={() => onChange(opt.choice)}
+              onClick={() => onChange({ value: opt.value, cost: opt.cost })}
               className={cn(
                 "relative rounded-lg border p-3.5 text-left transition-all",
                 isActive

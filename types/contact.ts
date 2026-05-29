@@ -38,10 +38,13 @@ export type ContactFormValues = {
     estimatedPrice?: number    // 概算金額(税込)
     // --- 以下、プレート看板シミュレーターの実態フィールド ---
     qty?: number               // 枚数
-    design?: string            // データ（"データあり" / "デザイン依頼"）
+    design?: string            // データ（"入稿データあり" / "デザイン作成を依頼"）
     finish?: string            // 仕上げ（"加工なし" / "穴あけ加工 + 角R加工" 等）
     light?: string             // 照明（"不要" / "アームライト" 等）
     choice?: string            // "製作のみ" / "製作＋施工"
+    thickness?: string         // 厚み（"3mm" / "5mm"）
+    bevel?: string             // 面取り（"あり" / "なし"）
+    mount?: string             // 取付金具
   }
 }
 

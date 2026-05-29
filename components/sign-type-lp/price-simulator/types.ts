@@ -1,6 +1,8 @@
+import type { DesignChoiceValue } from "@/data/pricing-rules"
+
 export type DesignChoice = {
-  value: "データあり" | "デザイン依頼"
-  cost: 0 | 10000
+  value: DesignChoiceValue
+  cost: number
 }
 
 export type EdgeChoice = {

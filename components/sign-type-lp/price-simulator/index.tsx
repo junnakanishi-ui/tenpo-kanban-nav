@@ -1,6 +1,7 @@
 "use client"
 
 import { useMemo, useState } from "react"
+import { DESIGN_OPTIONS } from "@/data/pricing-rules"
 import { calcSimulator } from "@/lib/price-simulator/calc"
 import { Step1Size } from "./step-1-size"
 import { Step2Design } from "./step-2-design"
@@ -13,7 +14,7 @@ const INITIAL_STATE: SimulatorState = {
   width: 900,
   height: 600,
   qty: 1,
-  design: { value: "データあり", cost: 0 },
+  design: { value: DESIGN_OPTIONS[0].value, cost: DESIGN_OPTIONS[0].cost },
   hole: false,
   edge: { value: "加工なし", cost: 0, key: "none" },
   light: { value: "不要", cost: 0 },

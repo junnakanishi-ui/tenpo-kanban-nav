@@ -1,4 +1,5 @@
 import { PRICE_LIST } from "@/data/simulators/plate-sign"
+import { INSTALL_FEE_DEFAULT, toTaxIncluded } from "@/data/pricing-rules"
 
 export type SimulatorInput = {
   width: number
@@ -35,11 +36,11 @@ export function calcSimulator(input: SimulatorInput): SimulatorResult {
   const subTotal = oneSheet * input.qty
   const baseEx = subTotal + input.designCost + input.lightCost
 
-  const onlyTotalInTax = Math.floor(baseEx * 1.1)
+  const onlyTotalInTax = toTaxIncluded(baseEx)
 
   const installInfo = calcInstallCost(input.width, input.height)
   const installEx = baseEx + installInfo.cost
-  const installTotalInTax = Math.floor(installEx * 1.1)
+  const installTotalInTax = toTaxIncluded(installEx)
 
   return {
     baseUnitPrice: baseUnit,
@@ -54,10 +55,10 @@ function calcInstallCost(w: number, h: number): { cost: number; label: string } 
   const long = Math.max(w, h)
   const short = Math.min(w, h)
   if (long <= 1500 && short <= 1000) {
-    return { cost: 30000, label: "職人1名想定" }
+    return { cost: INSTALL_FEE_DEFAULT, label: "職人1名想定" }
   }
   if (long <= 2500 && short <= 1500) {
-    return { cost: 60000, label: "職人2名想定" }
+    return { cost: INSTALL_FEE_DEFAULT * 2, label: "職人2名想定" }
   }
-  return { cost: 60000, label: "職人2名以上想定（要相談）" }
+  return { cost: INSTALL_FEE_DEFAULT * 2, label: "職人2名以上想定（要相談）" }
 }
