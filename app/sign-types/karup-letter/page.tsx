@@ -6,11 +6,11 @@ import { MaterialFinishSection } from "@/components/sign-type-lp/karup/material-
 import { PriceSimulator } from "@/components/sign-type-lp/karup/price-simulator"
 import { SpecGuideSection } from "@/components/sign-type-lp/karup/spec-guide-section"
 import { PriceList } from "@/components/sign-type-lp/karup/price-list"
-// F-3以降で追加：
-// import { VsOthersSection } from "@/components/sign-type-lp/karup/vs-others-section"
-// import { IndustrySection } from "@/components/sign-type-lp/karup/industry-section"
-// import { VariationSection } from "@/components/sign-type-lp/karup/variation-section"
-// import { ConstructionSection } from "@/components/sign-type-lp/karup/construction-section"
+import { VsOthersSection } from "@/components/sign-type-lp/karup/vs-others-section"
+import { IndustrySection } from "@/components/sign-type-lp/karup/industry-section"
+import { VariationSection } from "@/components/sign-type-lp/karup/variation-section"
+import { ConstructionSection } from "@/components/sign-type-lp/karup/construction-section"
+// F-4以降で追加：
 // import { FaqSection } from "@/components/sign-type-lp/karup/faq-section"
 // import { RelatedLinksSection } from "@/components/sign-type-lp/karup/related-links-section"
 // import { FinalCtaKarup } from "@/components/sign-type-lp/karup/final-cta-karup"
@@ -51,6 +51,10 @@ export default function KarupLetterPage() {
         </section>
         <SpecGuideSection />
         <PriceList />
+        <VsOthersSection />
+        <IndustrySection />
+        <VariationSection />
+        <ConstructionSection />
         <ContactChannels />
       </main>
       <SiteFooter />

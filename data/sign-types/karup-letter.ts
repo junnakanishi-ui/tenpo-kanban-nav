@@ -164,3 +164,188 @@ export const KARUP_PRICE_LIST: KarupPriceRow[] = [
 
 export const KARUP_PRICE_LIST_NOTE =
   "上記は素地仕上げ・1文字あたりの本体概算（税込）です。文字高は長辺基準。カッティングシート貼りは+30%、塗装は+45%、デザイン作成は別途+¥10,000〜、送料・取付金具・施工費は別途。文字高150mm以下は最低基本単価が適用されます。"
+
+// 他の立体文字との違い（3者比較）
+export type VsRow = {
+  axis: string
+  karup: string
+  stainless: string
+  acrylic: string
+  winner?: "karup" | "stainless" | "acrylic"
+}
+
+export const KARUP_VS_ROWS: VsRow[] = [
+  { axis: "価格", karup: "コスパが良い", stainless: "高め", acrylic: "中程度", winner: "karup" },
+  { axis: "重量", karup: "軽量", stainless: "重い", acrylic: "中程度", winner: "karup" },
+  { axis: "立体感", karup: "厚みを自由に選べる", stainless: "シャープで薄め", acrylic: "厚みは中程度" },
+  { axis: "質感", karup: "マット〜光沢・塗装自由", stainless: "金属の高級感", acrylic: "透明感・光沢" },
+  { axis: "屋外耐久", karup: "表面アクリルで屋外可", stainless: "非常に高い", acrylic: "高い", winner: "stainless" },
+  { axis: "取付", karup: "両面テープ/ボンドで簡単", stainless: "ビス・溶接など要施工", acrylic: "ビス・接着", winner: "karup" },
+  {
+    axis: "向いている用途",
+    karup: "店舗ファサード・内装・コスパ重視",
+    stainless: "高級店・銘板・長期屋外",
+    acrylic: "表札・受付・透明感重視",
+  },
+]
+
+export const KARUP_VS_CONCLUSION = {
+  karup: {
+    title: "カルプ文字を選ぶなら",
+    points: [
+      "立体感を出しつつコストを抑えたい",
+      "軽量で取付を簡単にしたい",
+      "店舗ファサード・内装サイン・装飾文字",
+    ],
+  },
+  others: [
+    {
+      title: "ステンレス切文字なら",
+      points: ["金属の重厚感・最高級感", "長期間の屋外設置"],
+      href: "#",
+      ready: false,
+    },
+    {
+      title: "アクリル看板なら",
+      points: ["透明感を活かした表札・受付サイン"],
+      href: "/sign-types/acrylic-sign",
+      ready: true,
+    },
+  ],
+}
+
+// 業種別おすすめ（6業種）
+export type IndustryItem = {
+  id: string
+  industry: string
+  catch: string
+  description: string
+  imagePath: string
+  imageAlt: string
+}
+
+export const KARUP_INDUSTRIES: IndustryItem[] = [
+  {
+    id: "facade",
+    industry: "店舗ファサード",
+    catch: "店の顔を立体的に魅せる",
+    description:
+      "店名やロゴを立体文字で壁面に。平面看板より目を引き、遠くからの視認性も高まります。",
+    imagePath: "/images/sign-types/karup-letter/industries/industry-facade.jpg",
+    imageAlt: "店舗ファサードの壁面に取り付けられた立体カルプ文字の事例",
+  },
+  {
+    id: "restaurant",
+    industry: "飲食店・カフェ",
+    catch: "おしゃれな店名サインに",
+    description:
+      "カフェやレストランの店名を立体文字で。塗装仕上げでブランドカラーに合わせられます。",
+    imagePath: "/images/sign-types/karup-letter/industries/industry-restaurant.jpg",
+    imageAlt: "カフェの壁面に取り付けられた塗装仕上げのカルプ立体文字",
+  },
+  {
+    id: "apparel",
+    industry: "アパレル・ショップ",
+    catch: "ブランドロゴを立体で",
+    description:
+      "ブランドロゴや店名を立体化。店内の壁やフィッティングエリアの装飾文字にも人気です。",
+    imagePath: "/images/sign-types/karup-letter/industries/industry-apparel.jpg",
+    imageAlt: "アパレルショップの店内壁面のブランドロゴ立体文字",
+  },
+  {
+    id: "salon",
+    industry: "美容室・サロン",
+    catch: "内装になじむ上品なサイン",
+    description:
+      "白カルプや塗装仕上げで、内装に調和するおしゃれな店名サインに。受付背面の壁にもおすすめ。",
+    imagePath: "/images/sign-types/karup-letter/industries/industry-salon.jpg",
+    imageAlt: "美容室の受付背面の壁に取り付けられたカルプ立体文字",
+  },
+  {
+    id: "office",
+    industry: "オフィス受付",
+    catch: "信頼感のあるロゴサイン",
+    description:
+      "会社のロゴ・社名を受付背面に立体文字で。コストを抑えつつ、きちんとした印象を演出できます。",
+    imagePath: "/images/sign-types/karup-letter/industries/industry-office.jpg",
+    imageAlt: "オフィス受付の背面壁に取り付けられた社名ロゴの立体カルプ文字",
+  },
+  {
+    id: "clinic",
+    industry: "クリニック・教室",
+    catch: "やわらかく親しみやすく",
+    description:
+      "白カルプの立体文字で、明るく親しみやすい印象に。クリニックや教室の入口・受付サインに。",
+    imagePath: "/images/sign-types/karup-letter/industries/industry-clinic.jpg",
+    imageAlt: "クリニック受付の白カルプ立体文字サインの事例",
+  },
+]
+
+// 製作バリエーション（4種）
+export type VariationItem = {
+  id: string
+  title: string
+  description: string
+  imagePath: string
+  imageAlt: string
+}
+
+export const KARUP_VARIATIONS: VariationItem[] = [
+  {
+    id: "logo",
+    title: "ロゴマークの立体化",
+    description: "文字だけでなく、ロゴマークやシンボルも立体カットで製作できます。",
+    imagePath: "/images/sign-types/karup-letter/variations/variation-logo.jpg",
+    imageAlt: "ロゴマークを立体カットしたカルプサイン",
+  },
+  {
+    id: "print",
+    title: "表面プリント・木目調",
+    description: "表面に印刷シートを貼り、木目調や写真調など多彩な表現が可能です。",
+    imagePath: "/images/sign-types/karup-letter/variations/variation-print.jpg",
+    imageAlt: "木目調のプリントを施したカルプ立体文字",
+  },
+  {
+    id: "side-color",
+    title: "側面の色変え",
+    description: "表面と側面で色を変える塗装で、より凝った立体表現ができます。",
+    imagePath: "/images/sign-types/karup-letter/variations/variation-side-color.jpg",
+    imageAlt: "表面と側面で色を変えたカルプ立体文字",
+  },
+  {
+    id: "large",
+    title: "大型・分割製作",
+    description: "大きな文字も分割製作で対応。ビル壁面など大型サインにも使えます。",
+    imagePath: "/images/sign-types/karup-letter/variations/variation-large.jpg",
+    imageAlt: "ビル壁面に設置された大型のカルプ立体文字",
+  },
+]
+
+// 取付・施工
+export const KARUP_CONSTRUCTION = {
+  lead: "軽量なカルプ文字は、平らな壁面・小型であればお客様自身での取付も可能です。屋外・高所・大型・きれいに揃えたい場合は、プロによる施工がおすすめです。",
+  diyOk: {
+    title: "自分で取付しやすいケース",
+    items: [
+      "屋内・低い位置への設置",
+      "小〜中サイズの文字",
+      "壁面が平滑（クロス・ベニヤ・平らな塗装壁）",
+      "両面テープ＋ボンドで対応できる",
+      "付属の取付用紙原稿で位置合わせできる",
+    ],
+    imagePath: "/images/sign-types/karup-letter/construction/construction-diy.jpg",
+    imageAlt: "取付用紙原稿を使って自分でカルプ文字を壁に取り付ける様子",
+  },
+  proRecommend: {
+    title: "施工相談がおすすめのケース",
+    items: [
+      "屋外・高所への設置",
+      "大型・文字数が多い",
+      "裏ピンで浮かせてきれいに固定したい",
+      "壁面がタイル・石材・コンクリート",
+      "ファサードの顔として正確に揃えたい",
+    ],
+    imagePath: "/images/sign-types/karup-letter/construction/construction-pro.jpg",
+    imageAlt: "プロが裏ピンでカルプ立体文字を壁面に施工する様子",
+  },
+}
