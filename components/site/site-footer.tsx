@@ -8,7 +8,7 @@ export function SiteFooter() {
       title: "看板の種類",
       links: [
         { label: "プレート看板", href: "/sign-types/plate-sign", ready: true },
-        { label: "アクリル看板", href: "#", ready: false },
+        { label: "アクリル看板", href: "/sign-types/acrylic-sign", ready: true },
         { label: "カルプ文字", href: "#", ready: false },
         { label: "ステンレス切文字", href: "#", ready: false },
         { label: "チャンネル文字", href: "#", ready: false },

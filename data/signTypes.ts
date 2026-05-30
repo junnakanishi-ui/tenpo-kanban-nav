@@ -43,7 +43,7 @@ export const signTypes: SignType[] = [
     uses: ["美容室", "サロン", "クリニック"],
     img: "/images/sign-types/acrylic-sign.jpg",
     alt: "クリアなアクリル看板の設置例",
-    href: "#",
+    href: "/sign-types/acrylic-sign",
   },
   {
     slug: "karup-letter",

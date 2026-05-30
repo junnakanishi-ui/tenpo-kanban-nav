@@ -10,10 +10,9 @@ import { VsPlateSection } from "@/components/sign-type-lp/acrylic/vs-plate-secti
 import { IndustrySection } from "@/components/sign-type-lp/acrylic/industry-section"
 import { VariationSection } from "@/components/sign-type-lp/acrylic/variation-section"
 import { ConstructionSection } from "@/components/sign-type-lp/acrylic/construction-section"
-// import PreparationSection from "@/components/sign-type-lp/acrylic/preparation-section"
-// import FlowSection from "@/components/sign-type-lp/acrylic/flow-section"
-// import FaqSection from "@/components/sign-type-lp/acrylic/faq-section"
-// import RelatedLinksSection from "@/components/sign-type-lp/acrylic/related-links-section"
+import { FaqSection } from "@/components/sign-type-lp/acrylic/faq-section"
+import { RelatedLinksSection } from "@/components/sign-type-lp/acrylic/related-links-section"
+import { FinalCtaAcrylic } from "@/components/sign-type-lp/acrylic/final-cta-acrylic"
 import { ContactChannels } from "@/components/site/contact-channels"
 
 export const metadata = {
@@ -56,6 +55,9 @@ export default function AcrylicSignPage() {
         <IndustrySection />
         <VariationSection />
         <ConstructionSection />
+        <FaqSection />
+        <RelatedLinksSection />
+        <FinalCtaAcrylic />
         <ContactChannels />
       </main>
       <SiteFooter />

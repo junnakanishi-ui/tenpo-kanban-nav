@@ -361,3 +361,122 @@ export const ACRYLIC_CONSTRUCTION = {
     imageAlt: "プロが浮かし金具で水平に取り付けたアクリル看板",
   },
 }
+
+// FAQ（10問）
+export type FaqItem = {
+  id: string
+  question: string
+  answer: string
+}
+
+export const ACRYLIC_FAQS: FaqItem[] = [
+  {
+    id: "q1",
+    question: "アクリル看板は屋外でも使えますか？",
+    answer:
+      "はい、屋外で使用できます。ただし設置場所・サイズ・取付方法によって適した仕様が変わります。屋外でご利用の場合は落下リスクや風の影響も考慮し、必要に応じて施工までご相談ください。",
+  },
+  {
+    id: "q2",
+    question: "透明・白・黒のどれを選べばいいですか？",
+    answer:
+      "透明感やおしゃれさを重視するなら透明アクリル、清潔感や見やすさを重視するなら白アクリル、高級感や落ち着いた雰囲気を出したいなら黒アクリルがおすすめです。クリニックやサロンでは白、オフィス・銘板では透明、バーや美容室では黒が選ばれることが多いです。",
+  },
+  {
+    id: "q3",
+    question: "面取り加工とは何ですか？",
+    answer:
+      "アクリル板の角を斜めに削り、断面をきれいに見せる加工です。高級感を出したい場合や、角の印象をやわらげたい場合におすすめです。シミュレーターでは「面取りあり/なし」を選択できます。",
+  },
+  {
+    id: "q4",
+    question: "デザインデータがなくても依頼できますか？",
+    answer:
+      "はい、可能です。店舗名・ロゴイメージ・希望の雰囲気・参考画像などをもとに、デザイン作成からご相談いただけます。デザイン作成は別途+¥10,000〜となります。",
+  },
+  {
+    id: "q5",
+    question: "穴あけ加工はできますか？",
+    answer:
+      "はい、可能です。設置方法に合わせて穴あけ位置・穴サイズを指定いただけます。ポピックや化粧ビスを使用した取付もご相談ください。",
+  },
+  {
+    id: "q6",
+    question: "大きいアクリル看板も作れますか？",
+    answer:
+      "製作自体はご相談可能ですが、アクリル看板は小型〜中型（〜600×600mm程度）の表札・入口サインに向いています。それ以上の大型で目立たせたい場合は、アルミ複合板プレート看板の方がコスト・施工性の面でおすすめです。",
+  },
+  {
+    id: "q7",
+    question: "自分で取り付けはできますか？",
+    answer:
+      "屋内・小型・低い位置の設置であれば、両面テープやビス止めでお客様自身で取付できるケースもあります。屋外・高所・浮かし金具を使いたい場合・店舗の顔としてきれいに仕上げたい場合は、プロによる施工をおすすめします。",
+  },
+  {
+    id: "q8",
+    question: "納期はどれくらいですか？",
+    answer:
+      "デザインデータをお持ちの場合、製作のみで最短7営業日が目安です。施工までご希望の場合は10営業日前後、デザイン作成からの場合はさらに数日いただきます。お急ぎの際もまずはご相談ください。",
+  },
+  {
+    id: "q9",
+    question: "全国対応していますか？",
+    answer:
+      "はい、製作のみのご依頼は全国へ発送可能です。施工までご希望の場合も全国対応が可能ですので、お見積もりの際にご相談ください。",
+  },
+  {
+    id: "q10",
+    question: "既存のアクリル看板の貼り替え・修理もお願いできますか？",
+    answer:
+      "はい、可能です。デザインの変更、カッティングシートの貼り替え、サイズの作り直しなど、現状の看板に応じてご提案いたします。写真をお送りいただけるとスムーズです。",
+  },
+]
+
+// 関連看板への導線
+export type RelatedSignItem = {
+  id: string
+  name: string
+  description: string
+  href: string
+  ready: boolean
+  imagePath: string
+  imageAlt: string
+}
+
+export const ACRYLIC_RELATED_SIGNS: RelatedSignItem[] = [
+  {
+    id: "plate-sign",
+    name: "アルミ複合板プレート看板",
+    description: "大きく目立たせたい・屋外でコスパよく店舗看板を作りたい方に。",
+    href: "/sign-types/plate-sign",
+    ready: true,
+    imagePath: "/images/sign-types/plate-sign.jpg",
+    imageAlt: "アルミ複合板プレート看板の設置例",
+  },
+  {
+    id: "karup-letter",
+    name: "カルプ文字",
+    description: "立体感のある軽量な切文字。ファサードや店舗内装に。",
+    href: "#",
+    ready: false,
+    imagePath: "/images/sign-types/karup-letter.jpg",
+    imageAlt: "カルプ文字看板の設置例",
+  },
+  {
+    id: "stainless-letter",
+    name: "ステンレス切文字",
+    description: "金属の質感で高級感のあるサイン。経年劣化が味になる。",
+    href: "#",
+    ready: false,
+    imagePath: "/images/sign-types/stainless-letter.jpg",
+    imageAlt: "ステンレス切文字看板の設置例",
+  },
+]
+
+// 最終CTA（アクリル用・Hero呼応の上品トーン）
+export const ACRYLIC_FINAL_CTA = {
+  label: "GET STARTED",
+  title: "まずは写真を送って、気軽にご相談ください。",
+  subtitle:
+    "「こんな看板にしたい」「この場所に付けたい」を写真で共有いただければ、最適なタイプ・サイズ・取付方法をご提案します。お見積もりは無料です。",
+}
