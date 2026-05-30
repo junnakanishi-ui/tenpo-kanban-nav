@@ -64,6 +64,8 @@ export const contactFormSchema = z.object({
       thickness: z.string().optional(),
       bevel: z.string().optional(),
       mount: z.string().optional(),
+      charHeight: z.number().optional(),
+      charCount: z.number().optional(),
     })
     .optional(),
 })

@@ -2,11 +2,11 @@ import { SiteHeader } from "@/components/site/site-header"
 import { SiteFooter } from "@/components/site/site-footer"
 import { Hero } from "@/components/sign-type-lp/karup/hero"
 import { WhatIsSection } from "@/components/sign-type-lp/karup/what-is-section"
-// F-2以降で追加：
-// import { MaterialFinishSection } from "@/components/sign-type-lp/karup/material-finish-section"
-// import { PriceSimulator } from "@/components/sign-type-lp/karup/price-simulator"
-// import { SpecGuideSection } from "@/components/sign-type-lp/karup/spec-guide-section"
-// import { PriceList } from "@/components/sign-type-lp/karup/price-list"
+import { MaterialFinishSection } from "@/components/sign-type-lp/karup/material-finish-section"
+import { PriceSimulator } from "@/components/sign-type-lp/karup/price-simulator"
+import { SpecGuideSection } from "@/components/sign-type-lp/karup/spec-guide-section"
+import { PriceList } from "@/components/sign-type-lp/karup/price-list"
+// F-3以降で追加：
 // import { VsOthersSection } from "@/components/sign-type-lp/karup/vs-others-section"
 // import { IndustrySection } from "@/components/sign-type-lp/karup/industry-section"
 // import { VariationSection } from "@/components/sign-type-lp/karup/variation-section"
@@ -29,7 +29,28 @@ export default function KarupLetterPage() {
       <main>
         <Hero />
         <WhatIsSection />
-        {/* F-2以降でここにセクションを順次追加 */}
+        <MaterialFinishSection />
+        <section id="simulator" aria-labelledby="karup-simulator-heading" className="bg-primary">
+          <div className="mx-auto max-w-content px-4 py-14 md:px-6 md:py-24">
+            <div className="mx-auto max-w-2xl text-center">
+              <p className="text-sm font-bold tracking-widest text-accent">PRICE SIMULATOR</p>
+              <h2
+                id="karup-simulator-heading"
+                className="mt-3 text-balance text-2xl font-black text-primary-foreground md:text-4xl"
+              >
+                カルプ文字 料金シミュレーション
+              </h2>
+              <p className="mt-4 leading-relaxed text-primary-foreground/70">
+                色・文字高・厚み・仕上げを選ぶだけで、概算価格がすぐにわかります。
+              </p>
+            </div>
+            <div className="mt-10 md:mt-12">
+              <PriceSimulator />
+            </div>
+          </div>
+        </section>
+        <SpecGuideSection />
+        <PriceList />
         <ContactChannels />
       </main>
       <SiteFooter />

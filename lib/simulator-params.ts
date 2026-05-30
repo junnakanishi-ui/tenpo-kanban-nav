@@ -115,3 +115,47 @@ export function inquiryTypeFromChoice(choice?: string): InquiryType {
     ? 'production_with_installation'
     : 'production_only'
 }
+
+// カルプ用：simulatorData を URL パラメータへ
+export function encodeKarupParams(data: SimulatorData): string {
+  const params = new URLSearchParams()
+  if (data.signType) params.set('st', data.signType)
+  if (data.material) params.set('color', data.material)
+  if (typeof data.charHeight === 'number') params.set('h', String(data.charHeight))
+  if (typeof data.charCount === 'number') params.set('cnt', String(data.charCount))
+  if (data.thickness) params.set('thk', data.thickness)
+  if (data.finish) params.set('fin', data.finish)
+  if (data.design) params.set('design', data.design)
+  if (data.choice) params.set('choice', data.choice)
+  if (typeof data.estimatedPrice === 'number') params.set('price', String(data.estimatedPrice))
+  return params.toString()
+}
+
+// カルプ用：searchParams から復元
+export function decodeKarupParams(
+  searchParams: Record<string, string | string[] | undefined>
+): SimulatorData | undefined {
+  const get = (k: string) => {
+    const v = searchParams[k]
+    return Array.isArray(v) ? v[0] : v
+  }
+  const st = get('st')
+  const color = get('color')
+  if (!st || !color) return undefined
+  const toNum = (s?: string) => {
+    if (s === undefined) return undefined
+    const n = Number(s)
+    return Number.isFinite(n) ? n : undefined
+  }
+  return {
+    signType: st,
+    material: color,
+    charHeight: toNum(get('h')),
+    charCount: toNum(get('cnt')),
+    thickness: get('thk'),
+    finish: get('fin'),
+    design: get('design'),
+    choice: get('choice'),
+    estimatedPrice: toNum(get('price')),
+  }
+}

@@ -152,7 +152,22 @@ export function ContactForm({ defaultValues }: Props) {
               <SimRow label="データ" value={defaultValues.simulatorData.design} />
             )}
             {defaultValues.simulatorData.material && (
-              <SimRow label="タイプ" value={defaultValues.simulatorData.material} />
+              <SimRow
+                label={defaultValues.simulatorData.charHeight ? "色" : "タイプ"}
+                value={defaultValues.simulatorData.material}
+              />
+            )}
+            {defaultValues.simulatorData.charHeight && (
+              <SimRow
+                label="文字高"
+                value={`${defaultValues.simulatorData.charHeight}mm`}
+              />
+            )}
+            {defaultValues.simulatorData.charCount && (
+              <SimRow
+                label="文字数"
+                value={`${defaultValues.simulatorData.charCount}文字`}
+              />
             )}
             {defaultValues.simulatorData.thickness && (
               <SimRow label="厚み" value={defaultValues.simulatorData.thickness} />

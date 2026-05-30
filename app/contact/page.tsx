@@ -5,6 +5,7 @@ import { ContactForm } from '@/components/contact/contact-form'
 import { ContactHero } from './_components/contact-hero'
 import {
   decodeAcrylicParams,
+  decodeKarupParams,
   decodeSimulatorParams,
   inquiryTypeFromChoice,
 } from '@/lib/simulator-params'
@@ -34,7 +35,11 @@ export default async function ContactPage({
   const stRaw = sp['st']
   const stVal = Array.isArray(stRaw) ? stRaw[0] : stRaw
   const simulatorData =
-    stVal === 'アクリル看板' ? decodeAcrylicParams(sp) : decodeSimulatorParams(sp)
+    stVal === 'アクリル看板'
+      ? decodeAcrylicParams(sp)
+      : stVal === 'カルプ文字'
+        ? decodeKarupParams(sp)
+        : decodeSimulatorParams(sp)
 
   const defaultValues: Partial<ContactFormValues> | undefined = simulatorData
     ? {

@@ -45,6 +45,8 @@ export type ContactFormValues = {
     thickness?: string         // 厚み（"3mm" / "5mm"）
     bevel?: string             // 面取り（"あり" / "なし"）
     mount?: string             // 取付金具
+    charHeight?: number        // 文字高(mm) ※カルプ文字
+    charCount?: number         // 文字数 ※カルプ文字
   }
 }
 
