@@ -9,7 +9,7 @@ export function SiteFooter() {
       links: [
         { label: "プレート看板", href: "/sign-types/plate-sign", ready: true },
         { label: "アクリル看板", href: "/sign-types/acrylic-sign", ready: true },
-        { label: "カルプ文字", href: "#", ready: false },
+        { label: "カルプ文字", href: "/sign-types/karup-letter", ready: true },
         { label: "ステンレス切文字", href: "#", ready: false },
         { label: "チャンネル文字", href: "#", ready: false },
         { label: "すべて見る", href: "#", ready: false },

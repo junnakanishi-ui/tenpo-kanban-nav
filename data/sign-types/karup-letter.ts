@@ -349,3 +349,122 @@ export const KARUP_CONSTRUCTION = {
     imageAlt: "プロが裏ピンでカルプ立体文字を壁面に施工する様子",
   },
 }
+
+// FAQ（10問）
+export type FaqItem = {
+  id: string
+  question: string
+  answer: string
+}
+
+export const KARUP_FAQS: FaqItem[] = [
+  {
+    id: "q1",
+    question: "カルプ文字は屋外でも使えますか？",
+    answer:
+      "はい、使えます。カルプは表面がアクリルなどで覆われており、素地仕上げでも屋外でご使用いただけます。ただし設置場所・サイズ・取付方法によって適した仕様が変わるため、屋外・高所の場合は施工までご相談ください。",
+  },
+  {
+    id: "q2",
+    question: "厚みは何mmを選べばいいですか？",
+    answer:
+      "屋内や小ぶりな文字には10mm、多くの店舗看板には標準的な20mm、遠くからの視認性や存在感を重視するなら30mmがおすすめです。厚いほど立体感と影が強くなります。迷う場合はご相談ください。",
+  },
+  {
+    id: "q3",
+    question: "素地・シート貼り・塗装の違いは？",
+    answer:
+      "素地は白/黒カルプそのままの表面でコストを抑えられます。シート貼りは表面に好きな色のカッティングシートを貼る方法で色の自由度が高く、塗装は側面まできれいに仕上がり最も高級感が出ます。シミュレーターで仕上げごとの概算を確認できます。",
+  },
+  {
+    id: "q4",
+    question: "デザインデータがなくても依頼できますか？",
+    answer:
+      "はい、可能です。店舗名・ロゴイメージ・希望の書体や雰囲気・参考画像などをもとに、デザイン作成からご相談いただけます。デザイン作成は別途+¥10,000〜となります。",
+  },
+  {
+    id: "q5",
+    question: "自分で取り付けできますか？",
+    answer:
+      "軽量なカルプ文字は、平らな壁面・小〜中サイズであれば両面テープとボンドでお客様自身で取付できるケースが多いです。製作品には位置合わせ用の取付用紙原稿が付属します。屋外・高所・大型はプロ施工をおすすめします。",
+  },
+  {
+    id: "q6",
+    question: "取付用紙原稿や両面テープは付きますか？",
+    answer:
+      "はい、製作品には文字の位置合わせ用の取付用紙原稿と、裏面の両面テープを標準でお付けしています（無料）。誰でもまっすぐきれいに取り付けられます。",
+  },
+  {
+    id: "q7",
+    question: "ロゴマークや特殊な形も作れますか？",
+    answer:
+      "はい、文字だけでなくロゴマークやシンボルマークの立体カットも製作できます。複雑な形状や細かいデザインの場合は、別途お見積もりとなることがあります。",
+  },
+  {
+    id: "q8",
+    question: "納期はどれくらいですか？",
+    answer:
+      "デザインデータをお持ちの場合、製作のみで最短7営業日が目安です。施工までご希望の場合は10営業日前後、デザイン作成からの場合はさらに数日いただきます。お急ぎの際もまずはご相談ください。",
+  },
+  {
+    id: "q9",
+    question: "大きいサイズや文字数が多くても作れますか？",
+    answer:
+      "はい、大型文字も分割製作などで対応可能です。ビル壁面の大型サインから、店内の小さな装飾文字まで幅広く製作できます。サイズや文字数に応じてお見積もりいたします。",
+  },
+  {
+    id: "q10",
+    question: "全国対応していますか？",
+    answer:
+      "はい、製作のみのご依頼は全国へ発送可能です。施工までご希望の場合も全国対応しておりますので、お見積もりの際にご相談ください。",
+  },
+]
+
+// 関連看板への導線
+export type RelatedSignItem = {
+  id: string
+  name: string
+  description: string
+  href: string
+  ready: boolean
+  imagePath: string
+  imageAlt: string
+}
+
+export const KARUP_RELATED_SIGNS: RelatedSignItem[] = [
+  {
+    id: "acrylic-sign",
+    name: "アクリル看板",
+    description: "透明感・清潔感を活かした表札・受付サイン。クリニックやサロンに人気。",
+    href: "/sign-types/acrylic-sign",
+    ready: true,
+    imagePath: "/images/sign-types/acrylic-sign.jpg",
+    imageAlt: "アクリル看板の設置例",
+  },
+  {
+    id: "plate-sign",
+    name: "アルミ複合板プレート看板",
+    description: "大きく目立たせたい・屋外でコスパよく作りたい店舗看板の定番。",
+    href: "/sign-types/plate-sign",
+    ready: true,
+    imagePath: "/images/sign-types/plate-sign.jpg",
+    imageAlt: "アルミ複合板プレート看板の設置例",
+  },
+  {
+    id: "stainless-letter",
+    name: "ステンレス切文字",
+    description: "金属の質感で最高級の重厚感。長期間の屋外設置にも。",
+    href: "#",
+    ready: false,
+    imagePath: "/images/sign-types/stainless-letter.jpg",
+    imageAlt: "ステンレス切文字看板の設置例",
+  },
+]
+
+// 最終CTA（カルプ用・Hero呼応の上品トーン）
+export const KARUP_FINAL_CTA = {
+  label: "GET STARTED",
+  title: "立体文字で、お店の名前をもっと印象的に。",
+  subtitle:
+    "「こんな立体文字にしたい」「この壁に付けたい」を写真で送っていただければ、最適な厚み・仕上げ・取付方法をご提案します。お見積もりは無料です。",
+}

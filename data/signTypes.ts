@@ -53,7 +53,7 @@ export const signTypes: SignType[] = [
     uses: ["美容室", "ショップ", "オフィス"],
     img: "/images/sign-types/karup-letter.jpg",
     alt: "壁面に取り付けられたカルプ文字看板",
-    href: "#",
+    href: "/sign-types/karup-letter",
   },
   {
     slug: "stainless-letter",

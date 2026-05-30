@@ -10,10 +10,9 @@ import { VsOthersSection } from "@/components/sign-type-lp/karup/vs-others-secti
 import { IndustrySection } from "@/components/sign-type-lp/karup/industry-section"
 import { VariationSection } from "@/components/sign-type-lp/karup/variation-section"
 import { ConstructionSection } from "@/components/sign-type-lp/karup/construction-section"
-// F-4以降で追加：
-// import { FaqSection } from "@/components/sign-type-lp/karup/faq-section"
-// import { RelatedLinksSection } from "@/components/sign-type-lp/karup/related-links-section"
-// import { FinalCtaKarup } from "@/components/sign-type-lp/karup/final-cta-karup"
+import { FaqSection } from "@/components/sign-type-lp/karup/faq-section"
+import { RelatedLinksSection } from "@/components/sign-type-lp/karup/related-links-section"
+import { FinalCtaKarup } from "@/components/sign-type-lp/karup/final-cta-karup"
 import { ContactChannels } from "@/components/site/contact-channels"
 
 export const metadata = {
@@ -55,6 +54,9 @@ export default function KarupLetterPage() {
         <IndustrySection />
         <VariationSection />
         <ConstructionSection />
+        <FaqSection />
+        <RelatedLinksSection />
+        <FinalCtaKarup />
         <ContactChannels />
       </main>
       <SiteFooter />
