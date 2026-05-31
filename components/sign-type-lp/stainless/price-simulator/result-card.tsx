@@ -9,6 +9,7 @@ import {
   STAINLESS_SIM_NOTES,
   type StainlessCalcResult,
 } from "@/data/simulators/stainless-letter"
+import { encodeStainlessParams } from "@/lib/simulator-params"
 import { cn } from "@/lib/utils"
 import type { SimulatorState } from "./types"
 
@@ -16,29 +17,6 @@ type Props = {
   state: SimulatorState
   result: StainlessCalcResult
   onChoiceChange: (choice: SimulatorState["choice"]) => void
-}
-
-function buildContactHref(state: SimulatorState, estimatedPrice: number): string {
-  const finishInfo = STAINLESS_FINISHES.find((f) => f.id === state.finish)
-  const finishName =
-    state.finish === "塗装" && state.paintColor.trim()
-      ? `${finishInfo?.name ?? state.finish}（${state.paintColor.trim()}）`
-      : (finishInfo?.name ?? state.finish)
-
-  const params = new URLSearchParams({
-    st: "ステンレス切文字",
-    finish: finishName,
-    mounting: state.mounting,
-    thickness: state.thickness,
-    size: state.size,
-    count: String(state.charCount),
-    spacer: state.spacer ? "必要" : "不要",
-    paint: state.paintColor,
-    choice: state.choice === "install" ? "製作＋施工" : "製作のみ",
-    price: String(estimatedPrice),
-  })
-
-  return `/contact?${params.toString()}`
 }
 
 export function ResultCard({ state, result, onChoiceChange }: Props) {
@@ -70,7 +48,17 @@ export function ResultCard({ state, result, onChoiceChange }: Props) {
   )
 
   const estimatedPrice = state.choice === "install" ? installTotal : onlyTotal
-  const contactHref = buildContactHref(state, estimatedPrice)
+  const contactHref = `/contact?${encodeStainlessParams({
+    signType: "ステンレス切文字",
+    finish: finishName,
+    mounting: state.mounting,
+    thickness: state.thickness,
+    size: state.size,
+    charCount: state.charCount,
+    spacer: state.spacer ? "必要" : "不要",
+    choice: state.choice === "install" ? "製作＋施工" : "製作のみ",
+    estimatedPrice,
+  })}`
   const ctaSubLabel =
     state.choice === "install" ? "製作＋施工で見積もり依頼" : "製作のみで見積もり依頼"
   const valid = result.valid

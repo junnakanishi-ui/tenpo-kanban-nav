@@ -6,6 +6,10 @@ import { FinishSection } from "@/components/sign-type-lp/stainless/finish-sectio
 import { MountingSection } from "@/components/sign-type-lp/stainless/mounting-section"
 import { PriceSimulator } from "@/components/sign-type-lp/stainless/price-simulator"
 import { VsOthersSection } from "@/components/sign-type-lp/stainless/vs-others-section"
+import { SpecRangeSection } from "@/components/sign-type-lp/stainless/spec-range-section"
+import { CaseSection } from "@/components/sign-type-lp/stainless/case-section"
+import { FaqSection } from "@/components/sign-type-lp/stainless/faq-section"
+import { FinalCtaStainless } from "@/components/sign-type-lp/stainless/final-cta-stainless"
 import { ContactChannels } from "@/components/site/contact-channels"
 
 export const metadata = {
@@ -43,7 +47,10 @@ export default function StainlessLetterPage() {
           </div>
         </section>
         <VsOthersSection />
-        {/* ===== 以下 S-4 で追記：製作可能範囲/最小寸法・メンテナンス・施工事例・FAQ(JSON-LD)・最終CTA ===== */}
+        <SpecRangeSection />
+        <CaseSection />
+        <FaqSection />
+        <FinalCtaStainless />
         <ContactChannels />
       </main>
       <SiteFooter />

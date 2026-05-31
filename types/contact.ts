@@ -47,6 +47,9 @@ export type ContactFormValues = {
     mount?: string             // 取付金具
     charHeight?: number        // 文字高(mm) ※カルプ文字
     charCount?: number         // 文字数 ※カルプ文字
+    mounting?: string          // 加工（"ボルト出し" / "両面テープ"）※ステンレス切文字
+    size?: string              // 文字サイズ（"H150" 等）※ステンレス切文字
+    spacer?: string            // スペーサー（"必要" / "不要"）※ステンレス切文字
   }
 }
 

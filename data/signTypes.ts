@@ -103,10 +103,10 @@ export const signTypes: SignType[] = [
     uses: ["オフィス", "ブランド店舗"],
     img: "/images/sign-types/stainless-letter.jpg",
     alt: "ステンレスの切文字によるエントランスサイン",
-    href: "#",
+    href: "/sign-types/stainless-letter",
     useCategories: ["facade", "nameplate"],
     priceCategory: "high",
-    ready: false,
+    ready: true,
   },
   {
     slug: "channel-letter",

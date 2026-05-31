@@ -6,6 +6,7 @@ import { ContactHero } from './_components/contact-hero'
 import {
   decodeAcrylicParams,
   decodeKarupParams,
+  decodeStainlessParams,
   decodeSimulatorParams,
   inquiryTypeFromChoice,
 } from '@/lib/simulator-params'
@@ -39,7 +40,9 @@ export default async function ContactPage({
       ? decodeAcrylicParams(sp)
       : stVal === 'カルプ文字'
         ? decodeKarupParams(sp)
-        : decodeSimulatorParams(sp)
+        : stVal === 'ステンレス切文字'
+          ? decodeStainlessParams(sp)
+          : decodeSimulatorParams(sp)
 
   const defaultValues: Partial<ContactFormValues> | undefined = simulatorData
     ? {

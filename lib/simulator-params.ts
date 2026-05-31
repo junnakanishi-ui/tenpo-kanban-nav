@@ -159,3 +159,48 @@ export function decodeKarupParams(
     estimatedPrice: toNum(get('price')),
   }
 }
+
+// ステンレス切文字用：simulatorData を URL パラメータへ
+export function encodeStainlessParams(data: SimulatorData): string {
+  const params = new URLSearchParams()
+  if (data.signType) params.set('st', data.signType)
+  if (data.finish) params.set('finish', data.finish)
+  if (data.mounting) params.set('mounting', data.mounting)
+  if (data.thickness) params.set('thickness', data.thickness)
+  if (data.size) params.set('size', data.size)
+  if (typeof data.charCount === 'number') params.set('count', String(data.charCount))
+  if (data.spacer) params.set('spacer', data.spacer)
+  if (data.choice) params.set('choice', data.choice)
+  if (typeof data.estimatedPrice === 'number') params.set('price', String(data.estimatedPrice))
+  return params.toString()
+}
+
+// ステンレス切文字用：searchParams から復元
+export function decodeStainlessParams(
+  searchParams: Record<string, string | string[] | undefined>
+): SimulatorData | undefined {
+  const get = (k: string) => {
+    const v = searchParams[k]
+    return Array.isArray(v) ? v[0] : v
+  }
+  const st = get('st')
+  const finish = get('finish')
+  // ステンレス由来と判定できる最低条件（看板タイプ＋仕上げ）
+  if (!st || !finish) return undefined
+  const toNum = (s?: string) => {
+    if (s === undefined) return undefined
+    const n = Number(s)
+    return Number.isFinite(n) ? n : undefined
+  }
+  return {
+    signType: st,
+    finish,
+    mounting: get('mounting'),
+    thickness: get('thickness'),
+    size: get('size'),
+    charCount: toNum(get('count')),
+    spacer: get('spacer'),
+    choice: get('choice'),
+    estimatedPrice: toNum(get('price')),
+  }
+}
