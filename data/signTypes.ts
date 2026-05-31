@@ -2,6 +2,31 @@
 // 看板種類カード（SignTypes）・ヒーロー下マルキー（ShowcaseMarquee）など
 // 複数のコンポーネントから参照されることを想定しています。
 
+/** 用途カテゴリのキー（フィルター軸／複数割り当て可） */
+export type UseCategory = "facade" | "nameplate" | "guide" | "promo"
+
+/** 価格帯カテゴリのキー（フィルター軸／単一） */
+export type PriceCategory = "low" | "mid" | "high"
+
+/** 用途カテゴリ：キー → 表示ラベル */
+export const USE_CATEGORY_LABELS: Record<UseCategory, string> = {
+  facade: "店舗ファサード",
+  nameplate: "表札・銘板",
+  guide: "案内・誘導",
+  promo: "販促・期間限定",
+}
+
+/** 価格帯カテゴリ：キー → 表示ラベル */
+export const PRICE_CATEGORY_LABELS: Record<PriceCategory, string> = {
+  low: "〜3万円",
+  mid: "3〜10万円",
+  high: "10万円〜",
+}
+
+/** フィルターUIで使う表示順（昇順） */
+export const USE_CATEGORY_ORDER: UseCategory[] = ["facade", "nameplate", "guide", "promo"]
+export const PRICE_CATEGORY_ORDER: PriceCategory[] = ["low", "mid", "high"]
+
 export type SignType = {
   /** URL用のスラッグ（将来 /sign-types/[slug] で使用） */
   slug: string
@@ -19,6 +44,12 @@ export type SignType = {
   alt: string
   /** カードの遷移先（個別ページ未作成時は "#"） */
   href: string
+  /** 用途カテゴリ（フィルター用・複数可） */
+  useCategories: UseCategory[]
+  /** 価格帯カテゴリ（フィルター用・単一） */
+  priceCategory: PriceCategory
+  /** 実ページが存在するか（true=リンク有効 / false=準備中グレー表示） */
+  ready: boolean
   /** トップページで「大きいカード」として扱うか */
   featured?: boolean
 }
@@ -33,6 +64,9 @@ export const signTypes: SignType[] = [
     img: "/images/sign-types/plate-sign.jpg",
     alt: "アルミ複合板のプレート看板の設置例",
     href: "/sign-types/plate-sign",
+    useCategories: ["facade", "nameplate"],
+    priceCategory: "mid",
+    ready: true,
     featured: true,
   },
   {
@@ -44,6 +78,9 @@ export const signTypes: SignType[] = [
     img: "/images/sign-types/acrylic-sign.jpg",
     alt: "クリアなアクリル看板の設置例",
     href: "/sign-types/acrylic-sign",
+    useCategories: ["facade", "nameplate"],
+    priceCategory: "mid",
+    ready: true,
   },
   {
     slug: "karup-letter",
@@ -54,6 +91,9 @@ export const signTypes: SignType[] = [
     img: "/images/sign-types/karup-letter.jpg",
     alt: "壁面に取り付けられたカルプ文字看板",
     href: "/sign-types/karup-letter",
+    useCategories: ["facade"],
+    priceCategory: "mid",
+    ready: true,
   },
   {
     slug: "stainless-letter",
@@ -64,6 +104,9 @@ export const signTypes: SignType[] = [
     img: "/images/sign-types/stainless-letter.jpg",
     alt: "ステンレスの切文字によるエントランスサイン",
     href: "#",
+    useCategories: ["facade", "nameplate"],
+    priceCategory: "high",
+    ready: false,
   },
   {
     slug: "channel-letter",
@@ -74,6 +117,9 @@ export const signTypes: SignType[] = [
     img: "/images/sign-types/channel-letter.jpg",
     alt: "夜間に発光するチャンネル文字の看板",
     href: "#",
+    useCategories: ["facade"],
+    priceCategory: "high",
+    ready: false,
   },
   {
     slug: "storefront-banner",
@@ -84,6 +130,9 @@ export const signTypes: SignType[] = [
     img: "/images/sign-types/storefront-banner.jpg",
     alt: "店頭に掲げられた布製の店頭幕",
     href: "#",
+    useCategories: ["facade", "promo"],
+    priceCategory: "low",
+    ready: false,
   },
   {
     slug: "window-sign",
@@ -94,6 +143,9 @@ export const signTypes: SignType[] = [
     img: "/images/sign-types/window-sign.jpg",
     alt: "ガラス面に施工されたウィンドウサイン",
     href: "#",
+    useCategories: ["facade", "promo"],
+    priceCategory: "low",
+    ready: false,
   },
   {
     slug: "stand-sign",
@@ -104,6 +156,9 @@ export const signTypes: SignType[] = [
     img: "/images/sign-types/stand-sign.jpg",
     alt: "歩道に設置されたA型スタンド看板",
     href: "#",
+    useCategories: ["guide", "promo"],
+    priceCategory: "low",
+    ready: false,
   },
   {
     slug: "projecting-sign",
@@ -114,6 +169,9 @@ export const signTypes: SignType[] = [
     img: "/images/sign-types/projecting-sign.jpg",
     alt: "雑居ビルから突き出した突き出し看板",
     href: "#",
+    useCategories: ["facade", "guide"],
+    priceCategory: "high",
+    ready: false,
   },
   {
     slug: "original-nobori",
@@ -124,6 +182,9 @@ export const signTypes: SignType[] = [
     img: "/images/sign-types/original-nobori-flag.jpg",
     alt: "店頭に並べられたオリジナルのぼり旗の設置例",
     href: "#",
+    useCategories: ["promo"],
+    priceCategory: "low",
+    ready: false,
   },
   {
     slug: "freestanding-sign",
@@ -134,5 +195,8 @@ export const signTypes: SignType[] = [
     img: "/images/sign-types/freestanding-sign.jpg",
     alt: "店舗入口前に設置された自立看板の設置例",
     href: "#",
+    useCategories: ["guide"],
+    priceCategory: "mid",
+    ready: false,
   },
 ]
