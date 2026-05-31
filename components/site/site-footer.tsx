@@ -12,7 +12,7 @@ export function SiteFooter() {
         { label: "カルプ文字", href: "/sign-types/karup-letter", ready: true },
         { label: "ステンレス切文字", href: "#", ready: false },
         { label: "チャンネル文字", href: "#", ready: false },
-        { label: "すべて見る", href: "#", ready: false },
+        { label: "すべて見る", href: "/sign-types", ready: true },
       ],
     },
     {
