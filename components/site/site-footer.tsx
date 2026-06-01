@@ -38,7 +38,7 @@ export function SiteFooter() {
     {
       title: "会社情報",
       links: [
-        { label: "運営会社", href: "#", ready: false },
+        { label: "運営会社", href: "/company", ready: true },
         { label: "お問い合わせ", href: "/contact", ready: true },
         { label: "プライバシーポリシー", href: "#", ready: false },
         { label: "利用規約", href: "#", ready: false },
